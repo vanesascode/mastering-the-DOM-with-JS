@@ -2,6 +2,8 @@
 
 My notes learning in depth the DOM and the interaction with it using JS.
 
+---
+
 ### 🟠 What is the DOM?
 
 The DOM stands for `Document Object Model`. It is a programming interface for HTML and XML documents.
@@ -9,6 +11,8 @@ The DOM stands for `Document Object Model`. It is a programming interface for HT
 The DOM represents the `structure of a document` as a tree-like structure, where each node represents a part of the document (such as an element, attribute, or text).
 
 It allows programs to `dynamically access and manipulate` the content, structure, and style of a document.
+
+---
 
 ### 🟠 Every HTML element has an object in the document hierarchy:
 
@@ -19,6 +23,8 @@ Every element in the markup represents a `node` in the Document Object Model (DO
 Each node in the DOM tree corresponds to `an HTML element, attribute, or text` within the HTML document.
 
 The nodes are organized in a hierarchical structure, where each node has a parent node (except for the root node) and can have zero or more child nodes.
+
+---
 
 ### 🟠 Interacting with the DOM:
 

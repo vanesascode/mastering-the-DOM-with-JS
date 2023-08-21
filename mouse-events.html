@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse Events</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-info">
+    <div class="container">
+      <h1 class="my-5">Mouse events:</h1>
+      <!--CLICK-->
+      <div class="border p-5 d-flex justify-content-between bg-white">
+        <div class="text-center">
+          <h2>Click</h2>
+          <button id="clickButton" class="btn btn-dark">Left-click</button>
+        </div>
+        <!--Contextmenu-->
+        <div class="text-center">
+          <h2>Contextmenu</h2>
+          <button id="right-clickButton" class="btn btn-dark">
+            Right-click
+          </button>
+        </div>
+
+        <!--Mouseover,Mouseout-->
+        <div class="text-center">
+          <h2>Mouseover/out</h2>
+          <button id="mouseButton" class="btn btn-dark">Pass over</button>
+        </div>
+
+        <!--Mousemove-->
+      </div>
+      <!--texts to appear-->
+
+      <p id="text" class="m-5 fs-3 text-center"></p>
+      <p id="text-two" class="m-5 fs-3 text-center fw-bold"></p>
+      <p id="text-three" class="m-5 fs-3 text-center fw-bold text-white"></p>
+    </div>
+  </body>
+
+  <script>
+    //The text that we want to make appear by different types of events:
+    const text = document.getElementById("text");
+    const textTwo = document.getElementById("text-two");
+    const textThree = document.getElementById("text-three");
+
+    //CLICK
+
+    const clickButton = document.getElementById("clickButton");
+    clickButton.addEventListener("click", toggleTextVisibilityClick);
+
+    function toggleTextVisibilityClick() {
+      if (text.innerHTML === "") {
+        text.innerHTML =
+          "This is the click event. Click again to make the text disappear.";
+      } else {
+        text.innerHTML = "";
+      }
+    }
+
+    //contextmenu
+
+    const rightClick = document.getElementById("right-clickButton");
+    rightClick.addEventListener("contextmenu", toggleTextVisibilityClick);
+
+    //Mouseover,Mouseout
+
+    const mouseButton = document.getElementById("mouseButton");
+    mouseButton.addEventListener("mouseover", makeTextAppear);
+
+    function makeTextAppear() {
+      text.innerHTML = "This is the mouseover and mouseout event.";
+    }
+
+    mouseButton.addEventListener("mouseout", makeTextDisappear);
+
+    function makeTextDisappear() {
+      text.innerHTML = "";
+    }
+
+    //Mousemove
+    document.addEventListener("mousemove", makeTextTwoAppear);
+
+    function makeTextTwoAppear() {
+      if (textTwo.innerHTML === "") {
+        textTwo.innerHTML = "This is the mousemove event.";
+      } else {
+        textTwo.innerHTML = "";
+      }
+    }
+
+    //Mousedown or Mouseup
+
+    document.addEventListener("mousedown", makeTextThreeAppear);
+    document.addEventListener("mouseup", makeTextThreeDisappear);
+
+    function makeTextThreeAppear() {
+      if (textThree.innerHTML === "") {
+        textThree.innerHTML = "This is the mousedown/up event.";
+      } else {
+        textThree.innerHTML = "";
+      }
+    }
+
+    function makeTextThreeDisappear() {
+      textThree.innerHTML = "";
+    }
+  </script>
+</html>
