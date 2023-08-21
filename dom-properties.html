@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Properties</title>
+  </head>
+  <body>
+    <div id="myElement" class="myClass">
+      <p>Hello, World!</p>
+
+      <span id="childElement">This is a child element</span>
+    </div>
+
+    <script>
+      const element = document.getElementById("myElement");
+
+      const childElement = document.getElementById("childElement");
+
+      /////////////////////////////////////////////////////////
+
+      //PROPERTIES:
+
+      console.log(element.nodeName); // Output: "DIV"
+
+      console.log(element.nodeType); // Output: 1 (Element Node)
+
+      console.log(childElement.nodeType); // Output: 1 (Element Node)
+
+      console.log(element.textContent); // Output:  Hello, World!
+
+      // This is a child element
+
+      console.log(element.innerHTML); // Output:  <p>Hello, World!</p>
+
+      // <span id="childElement">This is a child element</span>
+
+      console.log(element.classList); // Output: DOMTokenList ['myClass', value: 'myClass']
+
+      const parentElement = childElement.parentElement;
+
+      console.log(parentElement.id); // Output: "myElement"
+
+      console.log(element.children); // Output: HTMLCollection(2) [p, span#childElement, childElement: span#childElement]
+
+      console.log(element.attributes); // Output: NamedNodeMap {0: id, 1: class, id: id, class: class, length: 2}
+
+      element.style.color = "red";
+      element.style.fontSize = "16px";
+
+      console.log(element.style); // Output: CSSStyleDeclaration {0: 'color', 1: 'font-size', accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}
+    </script>
+  </body>
+</html>

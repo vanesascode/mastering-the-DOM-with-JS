@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>repl.it</title>
+  </head>
+  <body>
+    <h1>
+      <!--document.write-->
+      <script>
+        document.write("Hello World");
+      </script>
+    </h1>
+
+    <!------------------------------------------------------>
+
+    <div id="myElement" class="myClass">
+      <p>Hello, World!</p>
+
+      <span id="childElement">This is a child element</span>
+    </div>
+
+    <button id="myButton">Click Me</button>
+
+    <script>
+      const parentElement = childElement.parentElement;
+
+      // METHODS:
+
+      const element = document.querySelector("#myElement");
+      console.log(element); // Output: <p class="myClass">Hello, World!</p>
+
+      const elements = document.querySelectorAll(".myClass");
+      console.log(elements); // Output: NodeList [div#myElement.myClass]
+
+      const newChildElement = document.createElement("div");
+      newChildElement.innerHTML = "This is a new child element";
+      newChildElement.style.color = "blue";
+      parentElement.appendChild(newChildElement);
+
+      // parentElement.removeChild(childElement);
+      // parentElement.replaceChild(newChildElement, childElement);
+
+      element.setAttribute("data-value", "123");
+      console.log(element.getAttribute("data-value")); // Output: 123
+      // element.removeAttribute("data-value");
+
+      const button = document.getElementById("myButton");
+      button.addEventListener("click", () => {
+        console.log("Button clicked!");
+      });
+
+      /////////////////////////////////
+
+      // const button = document.getElementById("myButton");
+      const clickHandler = () => {
+        console.log("Button clicked!");
+      };
+      button.addEventListener("click", clickHandler);
+      // Later, remove the event listener
+      button.removeEventListener("click", clickHandler);
+    </script>
+  </body>
+</html>
