@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Events Examples</title>
+  </head>
+  <body>
+    <h2>Form Events Examples</h2>
+
+    <h3>Example 1: submit event</h3>
+    <form id="myForm">
+      <input type="text" id="name" required />
+      <input type="text" id="email" required />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <h3>Example 2: input event</h3>
+    <input type="text" id="username" oninput="checkUsernameAvailability()" />
+
+    <h3>Example 3: change event</h3>
+    <input type="checkbox" id="newsletter" onchange="toggleEmailField()" />
+    <label for="newsletter">Subscribe to Newsletter</label>
+    <br />
+    <input type="email" id="email" disabled />
+
+    <h3>Example 4: focusin and focusout events</h3>
+    <input
+      type="text"
+      id="focusExample"
+      onfocusin="handleFocusIn()"
+      onfocusout="handleFocusOut()"
+    />
+
+    <script>
+      // Example 1: submit event
+      const form = document.getElementById("myForm");
+
+      form.addEventListener("submit", printForm);
+
+      function printForm() {
+        event.preventDefault();
+        const myText = document.createElement("p");
+        myText.textContent = "Form submitted successfully!";
+        document.body.appendChild(myText);
+      }
+
+      // Example 2: input event
+      function checkUsernameAvailability() {
+        const usernameInput = document.getElementById("username");
+        const username = usernameInput.value;
+
+        // Make an AJAX request to check if the username is available
+        // Update the page based on the availability
+      }
+
+      // Example 3: change event
+      function toggleEmailField() {
+        const newsletterCheckbox = document.getElementById("newsletter");
+        const emailField = document.getElementById("email");
+
+        if (newsletterCheckbox.checked) {
+          emailField.disabled = false;
+        } else {
+          emailField.disabled = true;
+        }
+      }
+
+      // Example 4: focusin and focusout events
+      function handleFocusIn() {
+        console.log("Input field has received focus");
+      }
+
+      function handleFocusOut() {
+        console.log("Input field has lost focus");
+      }
+    </script>
+  </body>
+</html>

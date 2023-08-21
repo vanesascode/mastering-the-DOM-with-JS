@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //we log the url of the current page:
+      const dominio = document.location.host;
+      console.log(dominio);
+
+      // we create a new property in the window object:
+      window.vanesa = "hi";
+      console.log(window.vanesa);
+
+      // everytime the window is resized the size is logged:
+      window.addEventListener("resize", () => {
+        console.log(window.innerWidth);
+      });
+
+      ///////////////////////////////////////////////////////////
+
+      window.onload = function () {
+        //write your code here
+        console.log("Hello Rigo from the console!");
+      };
+
+      ////////////////////////////////////////////////////////////////////
+
+      console.log(window); //investigate all properties
+
+      //e.g: window.innerHeight
+    </script>
+  </body>
+</html>

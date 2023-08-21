@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <iframe id="myFrame" src=""></iframe>
+
+    <script>
+      const frame = document.getElementById("myFrame");
+
+      frame.addEventListener("load", function () {
+        console.log("Frame loaded");
+      });
+
+      frame.addEventListener("error", function (event) {
+        console.log("Frame error:", event.message);
+      });
+
+      frame.addEventListener("scroll", function () {
+        console.log("Frame scrolled");
+      });
+
+      window.addEventListener("message", function (event) {
+        console.log("Received message:", event.data);
+      });
+    </script>
+  </body>
+</html>
