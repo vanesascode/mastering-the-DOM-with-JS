@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1>
-      <!--document.write-->
+      <!--METHOD: document.write-->
       <script>
         document.write("Hello World");
       </script>
@@ -18,38 +18,111 @@
 
       <span id="childElement">This is a child element</span>
     </div>
-
+    <input type="text" name="username" value="Doe" />
     <button id="myButton">Click Me</button>
 
     <script>
       const parentElement = childElement.parentElement;
+      console.log(childElement); // Output: span#childElement
+      console.log(parentElement); // Output: div#myElement
 
-      // METHODS:
-
-      const element = document.querySelector("#myElement");
-      console.log(element); // Output: <p class="myClass">Hello, World!</p>
-
-      const elements = document.querySelectorAll(".myClass");
-      console.log(elements); // Output: NodeList [div#myElement.myClass]
+      ///////////////////MORE METHODS////////////////////////
 
       const newChildElement = document.createElement("div");
       newChildElement.innerHTML = "This is a new child element";
       newChildElement.style.color = "blue";
       parentElement.appendChild(newChildElement);
 
+      //////////////////////////////////////////////////////////////////
+
+      //The querySelector() method is a powerful feature of the DOM that allows you to select and retrieve the first element that matches a specified CSS selector.
+
+      //In here we are making reference to "div#myElement.myClass":
+      const element = document.querySelector("#myElement");
+      console.log(element); // Output: div#myElement.myClass
+      console.log(element.lastChild); // Output: div
+      console.log(element.lastChild.textContent); // Output: This is a new child element
+      element.lastChild.textContent = "This is a new text";
+      console.log(element.lastChild.textContent); // Output: This is a new text
+
+      //////////////////////////////////////////////////////////////////
+
+      // The querySelectorAll() method is similar to querySelector(), but it returns a static NodeList containing all elements that match a specified CSS selector:
+
+      const elements = document.querySelectorAll(".myClass");
+      console.log(elements); // Output: NodeList [div#myElement.myClass]
+      elements.forEach((element) => {
+        element.style.backgroundColor = "pink";
+      });
+
+      ////////////////////////////////////////////////////////////////////
+
+      //To remove a child element from its parent, you can use the removeChild() method. To replace a child element with a new element, you can use the replaceChild() method:
+
       // parentElement.removeChild(childElement);
       // parentElement.replaceChild(newChildElement, childElement);
+
+      //////////////////////////////////////////////////////////////////
+
+      //The setAttribute() method is used to set the value of a specified attribute on an element (it can be name, id, src, href, data-something, style, etc.):
+
+      // syntax for setAttribute(): element.setAttribute(name, value);
 
       element.setAttribute("data-value", "123");
       console.log(element.getAttribute("data-value")); // Output: 123
       // element.removeAttribute("data-value");
+      element.setAttribute("href", "https://example.com");
+      console.log(element.getAttribute("href")); // Output: https://example.com
+
+      //////////////////////////////////////////////////////////////////
+
+      const elements2 = document.getElementsByClassName("myClass");
+      console.log(elements2); // Output: HTMLCollection [div#myElement.myClass, myElement: div#myElement.myClass]
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].style.backgroundColor = "pink";
+      }
+
+      //////////////////////////////////////////////////////////////////
+
+      // The getElementsByTagName() method is used to retrieve a collection of elements with a specific HTML tag name.
+
+      const title = document.getElementsByTagName("h1");
+      console.log(title); // Output: HTMLCollection [h1]
+      console.log(title[0]); // Output: h1
+      console.log(title[0].textContent); // Output: document.write("Hello World");
+      // Hello World
+
+      //////////////////////////////////////////////////////////////////
+
+      //The getElementsByName() method is used to retrieve a collection of elements with a specific name attribute value. It returns an HTMLCollection object, representing a live collection of elements in the order they appear in the document.
+
+      const username = document.getElementsByName("username");
+      console.log(username); // Output: NodeList [input]
+      console.log(username[0].value); // Output: Doe
+      username[0].value = "John";
+      console.log(username[0].value); // Output: John
+
+      ///////////////////////////////////////////////////////////////////
+
+      //The childNodes property of an element is used to retrieve a collection of all child nodes of the element, including text nodes, element nodes, and comment nodes
+
+      const childNodes = element.childNodes;
+      console.log(childNodes); // Output: NodeList(6) [text, p, text, span#childElement, text, div]
+      for (let i = 0; i < childNodes.length; i++) {
+        console.log(childNodes[i]);
+      }
+
+      element.querySelector("#childElement").style.backgroundColor = "green";
+      element.querySelector("p").style.color = "red";
+
+      ////////////////// EVENT LISTENERS: ///////////////////////////////
 
       const button = document.getElementById("myButton");
       button.addEventListener("click", () => {
         console.log("Button clicked!");
       });
 
-      /////////////////////////////////
+      //////////////////////////////////////////////////////////////////
 
       // const button = document.getElementById("myButton");
       const clickHandler = () => {
