@@ -20,7 +20,7 @@
     <div class="container">
       <h1 class="my-5">Mouse events:</h1>
       <!--CLICK-->
-      <div class="border p-5 d-flex justify-content-between bg-white">
+      <div class="border p-5 d-flex justify-content-between bg-white rounded">
         <div class="text-center">
           <h2>Click</h2>
           <button id="clickButton" class="btn btn-dark">Left-click</button>
@@ -43,17 +43,21 @@
       </div>
       <!--texts to appear-->
 
-      <p id="text" class="m-5 fs-3 text-center"></p>
-      <p id="text-two" class="m-5 fs-3 text-center fw-bold"></p>
-      <p id="text-three" class="m-5 fs-3 text-center fw-bold text-white"></p>
+      <p id="text" class="m-4 fs-3 text-center"></p>
+      <p id="text-one" class="m-4 fs-3 text-center fw-bold"></p>
+      <p id="text-two" class="m-4 fs-3 text-center fw-bold text-secondary"></p>
+      <p id="text-three" class="m-4 fs-3 text-center fw-bold text-white"></p>
+      <p id="text-four" class="m-4 fs-3 text-center fw-bold text-success"></p>
     </div>
   </body>
 
   <script>
     //The text that we want to make appear by different types of events:
     const text = document.getElementById("text");
+    const textOne = document.getElementById("text-one");
     const textTwo = document.getElementById("text-two");
     const textThree = document.getElementById("text-three");
+    const textFour = document.getElementById("text-four");
 
     //CLICK
 
@@ -72,7 +76,16 @@
     //contextmenu
 
     const rightClick = document.getElementById("right-clickButton");
-    rightClick.addEventListener("contextmenu", toggleTextVisibilityClick);
+    rightClick.addEventListener("contextmenu", toggleTextOneVisibilityClick);
+
+    function toggleTextOneVisibilityClick() {
+      if (textOne.innerHTML === "") {
+        textOne.innerHTML =
+          "This is the contextmenu event. Click again to make the text disappear.";
+      } else {
+        textOne.innerHTML = "";
+      }
+    }
 
     //Mouseover,Mouseout
 
@@ -80,13 +93,13 @@
     mouseButton.addEventListener("mouseover", makeTextAppear);
 
     function makeTextAppear() {
-      text.innerHTML = "This is the mouseover and mouseout event.";
+      textFour.innerHTML = "This is the mouseover and mouseout event.";
     }
 
     mouseButton.addEventListener("mouseout", makeTextDisappear);
 
     function makeTextDisappear() {
-      text.innerHTML = "";
+      textFour.innerHTML = "";
     }
 
     //Mousemove

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1>Click on the 'li' tags to remove them:</h1>
+    <!--remove child-->
+    <div class="bg-info"><ul></ul></div>
+
+    <!--console.log parentNode-->
+    <div>
+      <section>
+        <article>
+          <p id="pOne">This is some text.</p>
+        </article>
+      </section>
+    </div>
+
+    <!--console.log childNodes-->
+
+    <div id="divOne" class="bg-info">
+      <p>This is a paragraph.</p>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+      </ul>
+    </div>
+
+    <!--console.log nextsibling-->
+
+    <div>
+      <p>This is a paragraph.</p>
+      <ul id="ulOne">
+        <li>Item 1</li>
+        <li>Item 2</li>
+      </ul>
+      <ul>
+        <li>d</li>
+      </ul>
+      <p>This is another paragraph.</p>
+    </div>
+
+    <!--------------------------->
+
+    <script>
+      // remove child
+      let myUL = document.querySelector("ul");
+
+      let names = [
+        "Tom Bombadil",
+        "Aragorn",
+        "Arwen",
+        "Boromir",
+        "Faramir",
+        "Saruman",
+        "Legolas",
+      ];
+
+      names.map((name) => {
+        myUL.innerHTML += `<li>${name}</li>`;
+      });
+
+      let LIs = document.querySelectorAll("li");
+
+      LIs.forEach((LI) =>
+        LI.addEventListener("click", () => {
+          LI.parentNode.removeChild(LI);
+        })
+      );
+
+      // console.log parentNode
+
+      const pOne = document.getElementById("pOne");
+      const article = pOne.parentNode.parentNode;
+      console.log(article); // Output: <article></article>
+
+      // console.log childNodes
+
+      const divOne = document.getElementById("divOne");
+      const childNodes = divOne.childNodes;
+
+      console.log(childNodes); // Output: NodeList(5) [text, p, text, ul, text]
+      console.log(childNodes[0]); // Output: #text
+
+      //console.log nextSibling:
+
+      const list = document.getElementById("ulOne");
+      const nextSibling = list.nextSibling;
+
+      console.log(nextSibling); // Output: #text
+    </script>
+  </body>
+</html>

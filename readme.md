@@ -33,3 +33,19 @@ The DOM hierarchy allows you to access and manipulate the elements in an HTML do
 Each node in the DOM has `properties and methods` that can be used to interact with it, such as changing its content, modifying its attributes, adding or removing child nodes, and more.
 
 Find examples in the html files of this repository.
+
+---
+
+### 🟠 Access different nodes and their relationships within the document structure:
+
+1.  `parentElement` : This property is similar to `parentNode` and returns the parent element of a specified element node. It is often used interchangeably with parentNode .
+
+2.  `nextSibling` : This property returns the next sibling node of the specified node. It can be any type of node, including elements, text nodes, comments, etc.
+
+3.  `previousSibling` : This property returns the previous sibling node of the specified node. Like nextSibling , it can be any type of node.
+
+4.  `childNodes` : This property returns a collection of all child nodes of the specified node, including elements, text nodes, comments, etc.
+
+5.  `firstChild` : This property returns the first child node of the specified node.
+
+6.  `lastChild` : This property returns the last child node of the specified node.
